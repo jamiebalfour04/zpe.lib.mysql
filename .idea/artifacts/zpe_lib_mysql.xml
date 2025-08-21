@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="libZPEMySQL">
+  <artifact type="jar" build-on-make="true" name="zpe.lib.mysql">
     <output-path>$USER_HOME$/Dropbox/Programs/JARs</output-path>
-    <root id="archive" name="libZPE-MySQL.jar">
-      <element id="module-output" name="libZPE-MySQL" />
+    <root id="archive" name="zpe.lib.mysql.jar">
+      <element id="module-output" name="zpe.lib.mysql" />
       <element id="library" level="project" name="mysql-connector-j-8.4.0" />
     </root>
   </artifact>

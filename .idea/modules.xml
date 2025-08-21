@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/libZPE-MySQL.iml" filepath="$PROJECT_DIR$/libZPE-MySQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zpe.lib.mysql.iml" filepath="$PROJECT_DIR$/zpe.lib.mysql.iml" />
     </modules>
   </component>
 </project>
