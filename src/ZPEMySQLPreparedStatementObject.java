@@ -8,10 +8,11 @@ import jamiebalfour.zpe.exceptions.ZPERuntimeException;
 import jamiebalfour.zpe.interfaces.ZPEType;
 import jamiebalfour.zpe.types.ZPEBoolean;
 import jamiebalfour.zpe.types.ZPEMap;
-import jamiebalfour.zpe.core.ZPE;
+import jamiebalfour.zpe.core.ZPECore;
 import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
 import jamiebalfour.generic.BinarySearchTree;
+import jamiebalfour.zpe.types.ZPEString;
 
 public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
 
@@ -62,7 +63,7 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
       preparedStatement = sqlConn.sql.connection.prepareStatement(output_query.toString());
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      ZPE.printWarning("Statement could not be prepared.");
+      ZPECore.printWarning("Statement could not be prepared.");
     }
   }
 
@@ -72,6 +73,11 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
     @Override
     public String[] getParameterNames() {
       return new String[]{"query_str"};
+    }
+
+    @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string"};
     }
 
     @Override
@@ -106,13 +112,18 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
     }
 
     @Override
+    public String[] getParameterTypes() {
+      return new String[]{"map"};
+    }
+
+    @Override
     public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
 
 
         if(!(parameters.get("values") instanceof ZPEMap)) {
-          ZPE.printError("Not type of ZPEAssociativeArray in prepare query.");
+          ZPECore.printError("Not type of ZPEAssociativeArray in prepare query.");
         }
 
         ZPEMap values = (ZPEMap) parameters.get("values");
@@ -120,8 +131,8 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
         //For every word
         int index = 1;
         for(String word : placeholders) {
-          System.out.println(values.get(word));
-          preparedStatement.setObject(index, values.get(word));
+          System.out.println(values.get(new ZPEString(word)));
+          preparedStatement.setObject(index, values.get(new ZPEString(word)));
           index++;
         }
 

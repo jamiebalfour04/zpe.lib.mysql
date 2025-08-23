@@ -1,5 +1,5 @@
 import jamiebalfour.generic.BinarySearchTree;
-import jamiebalfour.zpe.core.ZPE;
+import jamiebalfour.zpe.core.ZPECore;
 import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
 import jamiebalfour.zpe.core.ZPEStructure;
@@ -33,7 +33,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     try {
       sql = new MySQLAccess();
     } catch(Exception e) {
-      ZPE.log(e.getMessage());
+      ZPECore.log(e.getMessage());
       System.err.println("Cannot create MySQL connection. Please refer to ZPE log for more information.");
       return false;
     }
@@ -42,7 +42,7 @@ public class ZPEMySQLObject extends ZPEStructure {
       sql.connect(host, port, db, user, password);
       return true;
     } catch (SQLException e) {
-      ZPE.log(e.getMessage());
+      ZPECore.log(e.getMessage());
       System.err.println("Cannot connect to MySQL database. Please refer to ZPE log for more information.");
     }
 
@@ -63,6 +63,11 @@ public class ZPEMySQLObject extends ZPEStructure {
       params[4] = "port";
 
       return params;
+    }
+
+    @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string", "string", "string", "string", "number"};
     }
 
     @Override
@@ -101,6 +106,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
+    public String[] getParameterTypes() {
+      return new String[0];
+    }
+
+    @Override
     public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
@@ -127,6 +137,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     @Override
     public String[] getParameterNames() {
       return new String[]{"query_str"};
+    }
+
+    @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string"};
     }
 
     @Override
@@ -163,6 +178,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string"};
+    }
+
+    @Override
     public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
@@ -192,6 +212,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string"};
+    }
+
+    @Override
     public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
@@ -218,6 +243,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     @Override
     public String[] getParameterNames() {
       return new String[]{"query_str"};
+    }
+
+    @Override
+    public String[] getParameterTypes() {
+      return new String[]{"string"};
     }
 
     @Override

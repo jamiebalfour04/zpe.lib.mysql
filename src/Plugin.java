@@ -39,7 +39,7 @@ public class Plugin implements ZPELibrary {
 
   @Override
   public String getName() {
-    return "libZPE-MySQL";
+    return "libMySQL";
   }
 
   @Override
