@@ -23,6 +23,21 @@ public class Plugin implements ZPELibrary {
   }
 
   @Override
+  public boolean supportsWindows() {
+    return true;
+  }
+
+  @Override
+  public boolean supportsMacOs() {
+    return true;
+  }
+
+  @Override
+  public boolean supportsLinux() {
+    return true;
+  }
+
+  @Override
   public String getName() {
     return "libZPE-MySQL";
   }
