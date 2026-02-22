@@ -1,4 +1,4 @@
-import jamiebalfour.generic.BinarySearchTree;
+import jamiebalfour.generic.JBBinarySearchTree;
 import jamiebalfour.zpe.core.ZPECore;
 import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
@@ -71,7 +71,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
       try {
         String host = parameters.get("host").toString();
         int port = jamiebalfour.HelperFunctions.stringToInteger(parameters.get("port").toString());
@@ -111,7 +111,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
         return sql.getTableNames();
@@ -145,7 +145,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
         jamiebalfour.zpe.types.ZPEList l = sql.query(parameters.get("query_str").toString());
@@ -183,7 +183,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
         return sql.getColumnNames(parameters.get("table").toString());
@@ -217,7 +217,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
         return sql.query(parameters.get("query_str").toString());
@@ -251,7 +251,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
         ZPEMySQLPreparedStatementObject prep = new ZPEMySQLPreparedStatementObject(getRuntime(), parent);

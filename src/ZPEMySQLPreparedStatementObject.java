@@ -11,7 +11,7 @@ import jamiebalfour.zpe.types.ZPEMap;
 import jamiebalfour.zpe.core.ZPECore;
 import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
-import jamiebalfour.generic.BinarySearchTree;
+import jamiebalfour.generic.JBBinarySearchTree;
 import jamiebalfour.zpe.types.ZPEString;
 
 public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
@@ -81,7 +81,7 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       String query = parameters.get("query_str").toString();
 
@@ -117,7 +117,7 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
     }
 
     @Override
-    public ZPEType MainMethod(BinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
 
