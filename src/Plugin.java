@@ -12,7 +12,7 @@ public class Plugin implements ZPELibrary {
 
   @Override
   public Map<String, ZPECustomFunction> getFunctions() {
-    HashMap<String, ZPECustomFunction> arr = new HashMap<String, ZPECustomFunction>();
+    HashMap<String, ZPECustomFunction> arr = new HashMap<>();
     arr.put("mysql_connect", new MySQLConnect());
     return arr;
   }
@@ -98,14 +98,15 @@ public class Plugin implements ZPELibrary {
     }
 
     @Override
+    public byte[] getReturnTypes() {
+      return new byte[]{YASSByteCodes.OBJECT_TYPE, YASSByteCodes.BOOLEAN_TYPE};
+    }
+
+    @Override
     public int getRequiredPermissionLevel() {
       return 3;
     }
 
-    @Override
-    public byte getReturnType() {
-      return YASSByteCodes.MIXED_TYPE;
-    }
 
   }
 

@@ -1,15 +1,11 @@
 import jamiebalfour.generic.JBBinarySearchTree;
-import jamiebalfour.zpe.core.ZPECore;
-import jamiebalfour.zpe.core.ZPEObject;
-import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
-import jamiebalfour.zpe.core.ZPEStructure;
+import jamiebalfour.zpe.core.*;
 import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
 import jamiebalfour.zpe.interfaces.ZPEType;
 import jamiebalfour.zpe.types.ZPEBoolean;
 import jamiebalfour.zpe.types.ZPEString;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public class ZPEMySQLObject extends ZPEStructure {
   
@@ -50,7 +46,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  class connect_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  static class connect_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
 
 
     @Override
@@ -95,6 +91,11 @@ public class ZPEMySQLObject extends ZPEStructure {
       return "connect";
     }
 
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
+    }
+
   }
 
 
@@ -129,6 +130,12 @@ public class ZPEMySQLObject extends ZPEStructure {
     public String getName() {
       return "get_tables";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.LIST_TYPE, YASSByteCodes.BOOLEAN_TYPE};
+    }
+
 
   }
 
@@ -168,6 +175,12 @@ public class ZPEMySQLObject extends ZPEStructure {
       return "query_to_json";
     }
 
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.STRING_TYPE, YASSByteCodes.BOOLEAN_TYPE};
+    }
+
+
   }
 
   class get_columns_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
@@ -202,6 +215,12 @@ public class ZPEMySQLObject extends ZPEStructure {
       return "get_columns";
     }
 
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.LIST_TYPE, YASSByteCodes.BOOLEAN_TYPE};
+    }
+
+
   }
 
   class query_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
@@ -234,6 +253,11 @@ public class ZPEMySQLObject extends ZPEStructure {
     @Override
     public String getName() {
       return "query";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.LIST_TYPE, YASSByteCodes.BOOLEAN_TYPE};
     }
 
   }
@@ -272,8 +296,12 @@ public class ZPEMySQLObject extends ZPEStructure {
 
     @Override
     public String getName() {
-      // TODO Auto-generated method stub
       return "prepare";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.OBJECT_TYPE, YASSByteCodes.BOOLEAN_TYPE};
     }
 
   }

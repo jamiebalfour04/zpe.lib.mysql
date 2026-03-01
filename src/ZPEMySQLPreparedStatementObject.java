@@ -2,14 +2,11 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
-import jamiebalfour.zpe.core.ZPEStructure;
+import jamiebalfour.zpe.core.*;
 import jamiebalfour.zpe.exceptions.ZPERuntimeException;
 import jamiebalfour.zpe.interfaces.ZPEType;
 import jamiebalfour.zpe.types.ZPEBoolean;
 import jamiebalfour.zpe.types.ZPEMap;
-import jamiebalfour.zpe.core.ZPECore;
-import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
 import jamiebalfour.generic.JBBinarySearchTree;
 import jamiebalfour.zpe.types.ZPEString;
@@ -101,6 +98,11 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
       return "prepare";
     }
 
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.OBJECT_TYPE};
+    }
+
   }
 
 
@@ -151,6 +153,11 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
     @Override
     public String getName() {
       return "execute";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.OBJECT_TYPE};
     }
 
   }
