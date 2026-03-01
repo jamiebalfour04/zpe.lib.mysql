@@ -43,16 +43,16 @@ import "zpe.lib.mysql"
 db = mysql_connect("localhost", "my_database", "root", "password", 3306)
 
 // Run a simple query
-rows = db.query("SELECT id, name FROM users")
+rows = db->query("SELECT id, name FROM users")
 print(rows)
 
 // Using a prepared statement
-stmt = db.prepare("SELECT id FROM users WHERE id = :id;")
+stmt = db->prepare("SELECT id FROM users WHERE id = :id;")
 
 values = [=>]
 values[":id"] = 1
 
-result = stmt.execute(values)
+result = stmt->execute(values)
 print(result)
 </pre>
 
