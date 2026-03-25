@@ -7,9 +7,9 @@ import java.sql.Statement;
 
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
-import jamiebalfour.zpe.types.ZPEMap;
-import jamiebalfour.zpe.types.ZPEList;
-import jamiebalfour.zpe.types.ZPEString;
+import jamiebalfour.zpe.core.types.ZPEMap;
+import jamiebalfour.zpe.core.types.ZPEList;
+import jamiebalfour.zpe.core.types.ZPEString;
 
 public class MySQLAccess {
   Connection connection = null;

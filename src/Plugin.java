@@ -1,9 +1,9 @@
 import jamiebalfour.HelperFunctions;
 import jamiebalfour.zpe.core.*;
-import jamiebalfour.zpe.interfaces.ZPECustomFunction;
-import jamiebalfour.zpe.interfaces.ZPELibrary;
-import jamiebalfour.zpe.interfaces.ZPEType;
-import jamiebalfour.zpe.types.ZPEBoolean;
+import jamiebalfour.zpe.core.interfaces.ZPECustomFunction;
+import jamiebalfour.zpe.core.interfaces.ZPELibrary;
+import jamiebalfour.zpe.core.interfaces.ZPEType;
+import jamiebalfour.zpe.core.types.ZPEBoolean;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +47,7 @@ public class Plugin implements ZPELibrary {
     return "1.0";
   }
 
-  public static class MySQLConnect implements jamiebalfour.zpe.interfaces.ZPECustomFunction{
+  public static class MySQLConnect implements jamiebalfour.zpe.core.interfaces.ZPECustomFunction{
 
     @Override
     public String getManualEntry() {

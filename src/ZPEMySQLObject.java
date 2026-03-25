@@ -1,9 +1,9 @@
 import jamiebalfour.generic.JBBinarySearchTree;
 import jamiebalfour.zpe.core.*;
-import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
-import jamiebalfour.zpe.interfaces.ZPEType;
-import jamiebalfour.zpe.types.ZPEBoolean;
-import jamiebalfour.zpe.types.ZPEString;
+import jamiebalfour.zpe.core.interfaces.ZPEPropertyWrapper;
+import jamiebalfour.zpe.core.interfaces.ZPEType;
+import jamiebalfour.zpe.core.types.ZPEBoolean;
+import jamiebalfour.zpe.core.types.ZPEString;
 
 import java.sql.SQLException;
 
@@ -46,7 +46,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  static class connect_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  static class connect_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
 
     @Override
@@ -99,7 +99,7 @@ public class ZPEMySQLObject extends ZPEStructure {
   }
 
 
-  class get_tables_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class get_tables_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
@@ -139,7 +139,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  class query_to_json_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class query_to_json_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
@@ -155,7 +155,7 @@ public class ZPEMySQLObject extends ZPEStructure {
     public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
 
       try {
-        jamiebalfour.zpe.types.ZPEList l = sql.query(parameters.get("query_str").toString());
+        jamiebalfour.zpe.core.types.ZPEList l = sql.query(parameters.get("query_str").toString());
 
         jamiebalfour.parsers.json.ZenithJSONParser parser = new jamiebalfour.parsers.json.ZenithJSONParser();
 
@@ -183,7 +183,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  class get_columns_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class get_columns_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
@@ -223,7 +223,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  class query_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class query_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
@@ -262,7 +262,7 @@ public class ZPEMySQLObject extends ZPEStructure {
 
   }
 
-  class prepare_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class prepare_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {

@@ -3,13 +3,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import jamiebalfour.zpe.core.*;
-import jamiebalfour.zpe.exceptions.ZPERuntimeException;
-import jamiebalfour.zpe.interfaces.ZPEType;
-import jamiebalfour.zpe.types.ZPEBoolean;
-import jamiebalfour.zpe.types.ZPEMap;
-import jamiebalfour.zpe.interfaces.ZPEPropertyWrapper;
+import jamiebalfour.zpe.core.exceptions.ZPERuntimeException;
+import jamiebalfour.zpe.core.interfaces.ZPEType;
+import jamiebalfour.zpe.core.types.ZPEMap;
+import jamiebalfour.zpe.core.interfaces.ZPEPropertyWrapper;
 import jamiebalfour.generic.JBBinarySearchTree;
-import jamiebalfour.zpe.types.ZPEString;
+import jamiebalfour.zpe.core.types.ZPEString;
 
 public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
 
@@ -65,7 +64,7 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
   }
 
   //A native method to reprepare a query
-  class prepare_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class prepare_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
@@ -106,7 +105,7 @@ public class ZPEMySQLPreparedStatementObject extends ZPEStructure {
   }
 
 
-  class execute_Command implements jamiebalfour.zpe.interfaces.ZPEObjectNativeMethod {
+  class execute_Command implements jamiebalfour.zpe.core.interfaces.ZPEObjectNativeMethod {
 
     @Override
     public String[] getParameterNames() {
